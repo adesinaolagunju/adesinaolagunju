@@ -49,10 +49,13 @@ export default function Page() {
           </h1>
 
           <p className="text-gray-700 leading-relaxed">
-            I’m a Fullstack Engineer with experience building scalable web and
-            mobile applications using React, Next.js, Django, Flask, and modern
-            backend technologies. I’m a final-year Mathematics student at
-            Obafemi Awolowo University and an ALX Software Engineering graduate.
+            I’m a Full Stack & Mobile Developer with proven experience
+            designing and deploying scalable web and mobile
+            applications using Python, Django, Express.js, PHP Laravel, React,
+            Next.js, and React Native. Adept at building responsive
+            user interfaces, robust backend systems, and cloud
+            integrations. Strong problem-solver with a collaborative
+            mindset, eager to drive impactful digital solutions.
           </p>
 
           <p className="text-gray-700 leading-relaxed">
