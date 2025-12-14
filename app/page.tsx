@@ -165,7 +165,7 @@ export default function Page() {
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com/in/daasesina"
+              href="https://www.linkedin.com/in/daadesina/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center text-center gap-3 p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition"
@@ -174,7 +174,7 @@ export default function Page() {
               <div>
                 <p className="font-semibold">LinkedIn</p>
                 <p className="text-sm text-gray-600">
-                  linkedin.com/in/daasesina
+                  linkedin.com/in/daadesina
                 </p>
               </div>
             </a>
