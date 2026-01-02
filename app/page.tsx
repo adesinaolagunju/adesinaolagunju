@@ -19,6 +19,7 @@ import adelearning from "@/public/images/adelearning.png"
 
 
 export default function Page() {
+  const RESUME_URL = "https://drive.google.com/file/d/1LVsPLyx_9f5DtTOIROXcqEUbr6iEQS96/view?usp=drive_link"
   return (
     <main className="px-3 md:px-16 py-8 max-w-7xl mx-auto">
       {/* ================= NAVBAR ================= */}
@@ -28,7 +29,7 @@ export default function Page() {
         <div className="md:space-x-6 md:text-sm text-xs font-medium space-x-2 ">
           <Link href="#about" className="hover:text-gray-600">About</Link>
           <Link href="#projects" className="hover:text-gray-600">Projects</Link>
-          <a href="https://drive.google.com/file/d/11NgF3WAqXFhk6hOW4p1RepTgsOUScvdT/view?usp=drive_link" target="_blank" className="hover:text-gray-600">Resume</a>
+          <a href={RESUME_URL} target="_blank" className="hover:text-gray-600">Resume</a>
           <Link href="#contact" className="hover:text-gray-600">Contact</Link>
         </div>
       </nav>
@@ -72,7 +73,8 @@ export default function Page() {
 
             <div className="flex gap-4 pt-4">
               <a
-                href="https://drive.google.com/file/d/11NgF3WAqXFhk6hOW4p1RepTgsOUScvdT/view?usp=drive_link"
+                href={RESUME_URL}
+                target="_blank"
                 className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-gray-800 transition"
               >
                 View Resume
