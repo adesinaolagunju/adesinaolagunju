@@ -1,5 +1,6 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
+"use client"
 
 
 import Image from "next/image"
@@ -15,11 +16,28 @@ import emergency_news from "@/public/images/emergency_news.png"
 import ubuntu_library from "@/public/images/ubuntu_library.png"
 import adelearning from "@/public/images/adelearning.png"
 
+import { certificates } from "./data/certificates"
+import CertificateCard from "./components/CertificateCard"
+import { useState } from "react"
+import CertificateModal from "./components/CertificateModal"
 
 
+
+const VISIBLE_COUNT = 6
 
 export default function Page() {
-  const RESUME_URL = "https://drive.google.com/file/d/1LVsPLyx_9f5DtTOIROXcqEUbr6iEQS96/view?usp=drive_link"
+  const RESUME_URL = "https://drive.google.com/file/d/1tIAWFkByRi6wUzOITyk0XSh5z3p3Zsdh/view?usp=drive_link"
+  
+
+  const [selectedCertificate, setSelectedCertificate] = useState<any>(null)
+
+
+  const [showAll, setShowAll] = useState(false)
+
+  const visibleCertificates = showAll
+    ? certificates
+    : certificates.slice(0, VISIBLE_COUNT)
+  
   return (
     <main className="px-3 md:px-16 py-8 max-w-7xl mx-auto">
       {/* ================= NAVBAR ================= */}
@@ -71,7 +89,8 @@ export default function Page() {
               problems—especially across Africa.
             </p>
 
-            <div className="flex gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-4">
+              {/* Resume Button */}
               <a
                 href={RESUME_URL}
                 target="_blank"
@@ -80,13 +99,23 @@ export default function Page() {
                 View Resume
               </a>
 
+              {/* Contact Button */}
               <Link
                 href="#contact"
                 className="px-5 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-100 transition"
               >
                 Contact Me
               </Link>
+
+              {/* Certificates Button */}
+              <Link
+                href="#certificates"
+                className="px-5 py-2 rounded-lg bg-indigo-900 text-white text-sm font-medium hover:bg-indigo-800 transition"
+              >
+                View Certificates
+              </Link>
             </div>
+
           </div>
         </section>
       </div>
@@ -132,7 +161,7 @@ export default function Page() {
             description="A personal finance management web app that helps users track income, expenses, and visualize financial data with interactive charts."
             stack={["Flask", "Python", "Chart.js", "SQLite", "HTML/CSS"]}
             live="https://adefinance.onrender.com/"
-            github="https://github.com/daadesina/AdeFinance"
+            github="https://github.com/adesinaolagunju/AdeFinance"
           />
 
           <ProjectCard
@@ -148,7 +177,7 @@ export default function Page() {
             title="CBT API"
             description="A RESTful API for computer-based examinations including authentication, timed tests, and result evaluation."
             stack={["Laravel", "PHP", "Postman"]}
-            github="https://github.com/daadesina/AdeCBT.git"
+            github="https://github.com/adesinaolagunju/AdeCBT.git"
           />
 
           <ProjectCard
@@ -156,11 +185,45 @@ export default function Page() {
             title="AdeLearning"
             description="A mobile learning app built with React Native and Expo featuring user authentication and a personalized dashboard."
             stack={["React Native", "Expo"]}
-            github="https://github.com/daadesina/AdeLearning.git"
+            github="https://github.com/adesinaolagunju/AdeLearning.git"
           />
 
         </div>
       </section>
+
+
+      {/* ================= CERTIFICATES ================= */}
+
+      <section id="certificates" className="mt-32">
+        <h2 className="text-3xl font-bold">Certificates</h2>
+        <p className="text-gray-600 mt-2 max-w-2xl">
+          Professional certifications and learning programs I’ve completed.
+        </p>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+          {visibleCertificates.map((cert) => (
+            <CertificateCard
+              key={cert.id}
+              {...cert}
+              onClick={() => setSelectedCertificate(cert)}
+            />
+          ))}
+        </div>
+
+
+        {/* Toggle Button */}
+        {certificates.length > VISIBLE_COUNT && (
+          <div className="flex justify-center mt-10">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-6 py-2 rounded-lg border bg-black text-white cursor-pointer text-sm font-medium hover:bg-gray-100 hover:text-black transition"
+            >
+              {showAll ? "Show less" : "View more certificates"}
+            </button>
+          </div>
+        )}
+      </section>
+
       
       {/* ================= CONTACT ================= */}
       <div className="flex justify-center">
@@ -179,21 +242,21 @@ export default function Page() {
           <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6 mt-10 ">
             {/* Email */}
             <a
-              href="mailto:daadesina1@gmail.com"
+              href="mailto:adesinaolagunju1@gmail.com"
               className="flex md:w-[30%] w-full flex-col items-center text-center gap-3 p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition"
             >
               <FaEnvelope className="text-2xl" />
               <div>
                 <p className="font-semibold">Email</p>
                 <p className="text-sm text-gray-600">
-                  daadesina1@gmail.com
+                  adesinaolagunju1@gmail.com
                 </p>
               </div>
             </a>
 
             {/* GitHub */}
             <a
-              href="https://github.com/daadesina"
+              href="https://github.com/adesinaolagunju"
               target="_blank"
               rel="noopener noreferrer"
               className="flex md:w-[30%] w-full flex-col items-center text-center gap-3 p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition"
@@ -202,14 +265,14 @@ export default function Page() {
               <div>
                 <p className="font-semibold">GitHub</p>
                 <p className="text-sm text-gray-600">
-                  github.com/daadesina
+                  github.com/adesinaolagunju
                 </p>
               </div>
             </a>
 
             {/* LinkedIn */}
             <a
-              href="https://www.linkedin.com/in/daadesina/"
+              href="https://www.linkedin.com/in/adesinaolagunju/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex md:w-[30%] w-full flex-col items-center text-center gap-3 p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition"
@@ -218,7 +281,7 @@ export default function Page() {
               <div>
                 <p className="font-semibold">LinkedIn</p>
                 <p className="text-sm text-gray-600">
-                  linkedin.com/in/daadesina
+                  linkedin.com/in/adesinaolagunju
                 </p>
               </div>
             </a>
@@ -242,6 +305,12 @@ export default function Page() {
           </div>
         </section>
       </div>
+
+      <CertificateModal
+        certificate={selectedCertificate}
+        onClose={() => setSelectedCertificate(null)}
+      />
+
 
     </main>
   )

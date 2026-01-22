@@ -37,10 +37,10 @@ export default function RootLayout({
               "@type": "Person",
               name: "Adesina Olagunju",
               jobTitle: "Full-Stack & Mobile Developer",
-              url: "https://your-vercel-domain.vercel.app",
+              url: "https://adesinaolagunju.vercel.app",
               sameAs: [
-                "https://www.linkedin.com/in/daadesina",
-                "https://github.com/daadesina",
+                "https://www.linkedin.com/in/adesinaolagunju",
+                "https://github.com/adesinaolagunju",
               ],
             }),
           }}
