@@ -7,12 +7,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { FaEnvelope, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa"
 
+import { ChevronDown, ChevronUp } from "lucide-react";
+
+
 import logo from "@/public/images/logo.png"
 import profile_pic from "@/public/images/profile_pic.png"
 import adefinance from "@/public/images/adefinance.png"
 import aice_ui_design from "@/public/images/aice_ui_design.png"
 import cbt_postman from "@/public/images/cbt_postman.png"
-import emergency_news from "@/public/images/emergency_news.png"
+import ubuntureport from "@/public/images/ubuntureport.png"
 import ubuntu_library from "@/public/images/ubuntu_library.png"
 import adelearning from "@/public/images/adelearning.png"
 
@@ -89,32 +92,34 @@ export default function Page() {
               problems—especially across Africa.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              {/* Resume Button */}
-              <a
-                href={RESUME_URL}
-                target="_blank"
-                className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-gray-800 transition"
-              >
-                View Resume
-              </a>
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 pt-4">
+  {/* Resume & Contact Buttons */}
+  <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+    <a
+      href={RESUME_URL}
+      target="_blank"
+      className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-gray-800 transition text-center"
+    >
+      View Resume
+    </a>
 
-              {/* Contact Button */}
-              <Link
-                href="#contact"
-                className="px-5 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-100 transition"
-              >
-                Contact Me
-              </Link>
+    <Link
+      href="#contact"
+      className="px-5 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-100 transition text-center"
+    >
+      Contact Me
+    </Link>
+  </div>
 
-              {/* Certificates Button */}
-              <Link
-                href="#certificates"
-                className="px-5 py-2 rounded-lg bg-indigo-900 text-white text-sm font-medium hover:bg-indigo-800 transition"
-              >
-                View Certificates
-              </Link>
-            </div>
+  {/* Certificates Button */}
+  <Link
+    href="#certificates"
+    className="px-5 py-2 rounded-lg bg-indigo-900 text-white text-sm font-medium hover:bg-indigo-800 transition text-center w-full sm:w-auto"
+  >
+    View Certificates
+  </Link>
+</div>
+
 
           </div>
         </section>
@@ -131,8 +136,8 @@ export default function Page() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
           {/* ===== Project Card ===== */}
           <ProjectCard
-            image={emergency_news}
-            title="EmergencyNews"
+            image={ubuntureport}
+            title="UbuntuReport"
             description="A full-stack global news aggregator that collects and displays real-time news from 50+ international sources using RSS feeds."
             stack={[
               "Next.js",
@@ -140,8 +145,8 @@ export default function Page() {
               "Celery Beat",
               "Redis",
             ]}
-            live="https://emergency-news2025.vercel.app/"
-            github="https://github.com/ChiAdeTech/EmergencyNews2025.git"
+            live="https://ubuntureport.vercel.app/"
+            github="https://github.com/ubuntustates/UbuntuReport2026.git"
           />
 
           <ProjectCard
@@ -149,8 +154,8 @@ export default function Page() {
             title="UbuntuLibrary"
             description="An e-library platform for reading and downloading African-authored books, focused on Pan-African history, culture, and ideology."
             stack={["Next.js", "Tailwind CSS"]}
-            live="https://ubuntu-library2025.vercel.app/"
-            github="https://github.com/ubuntulibrary/UbuntuLibrary2025.git"
+            live="https://ubuntulibrary.vercel.app/"
+            github="https://github.com/ubuntustates/UbuntuLibrary2025.git"
           />
 
 
@@ -204,11 +209,12 @@ export default function Page() {
           {visibleCertificates.map((cert) => (
             <CertificateCard
               key={cert.id}
-              {...cert}
+              certificate={cert}
               onClick={() => setSelectedCertificate(cert)}
             />
           ))}
         </div>
+
 
 
         {/* Toggle Button */}
@@ -216,12 +222,19 @@ export default function Page() {
           <div className="flex justify-center mt-10">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="px-6 py-2 rounded-lg border bg-black text-white cursor-pointer text-sm font-medium hover:bg-gray-100 hover:text-black transition"
+              className="px-6 py-2 rounded-lg border bg-black text-white cursor-pointer text-sm font-medium hover:bg-gray-100 hover:text-black transition flex items-center gap-2"
             >
               {showAll ? "Show less" : "View more certificates"}
+
+              {showAll ? (
+                <ChevronUp size={16} />
+              ) : (
+                <ChevronDown size={16} />
+              )}
             </button>
           </div>
         )}
+
       </section>
 
       
