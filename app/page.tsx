@@ -29,7 +29,7 @@ import CertificateModal from "./components/CertificateModal"
 const VISIBLE_COUNT = 6
 
 export default function Page() {
-  const RESUME_URL = "https://drive.google.com/file/d/1tIAWFkByRi6wUzOITyk0XSh5z3p3Zsdh/view?usp=drive_link"
+  const RESUME_URL = "https://drive.google.com/file/d/13_1AiHFDcMiPLkZ5rcF2ny7xcodqG0S8/view?usp=drive_link"
   
 
   const [selectedCertificate, setSelectedCertificate] = useState<any>(null)
@@ -93,32 +93,32 @@ export default function Page() {
             </p>
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 pt-4">
-  {/* Resume & Contact Buttons */}
-  <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-    <a
-      href={RESUME_URL}
-      target="_blank"
-      className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-gray-800 transition text-center"
-    >
-      View Resume
-    </a>
+              {/* Resume & Contact Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a
+                  href={RESUME_URL}
+                  target="_blank"
+                  className="px-5 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-gray-800 transition text-center"
+                >
+                  View Resume
+                </a>
 
-    <Link
-      href="#contact"
-      className="px-5 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-100 transition text-center"
-    >
-      Contact Me
-    </Link>
-  </div>
+                <Link
+                  href="#contact"
+                  className="px-5 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-100 transition text-center"
+                >
+                  Contact Me
+                </Link>
+              </div>
 
-  {/* Certificates Button */}
-  <Link
-    href="#certificates"
-    className="px-5 py-2 rounded-lg bg-indigo-900 text-white text-sm font-medium hover:bg-indigo-800 transition text-center w-full sm:w-auto"
-  >
-    View Certificates
-  </Link>
-</div>
+              {/* Certificates Button */}
+              <Link
+                href="#certificates"
+                className="px-5 py-2 rounded-lg bg-indigo-900 text-white text-sm font-medium hover:bg-indigo-800 transition text-center w-full sm:w-auto"
+              >
+                View Certificates
+              </Link>
+            </div>
 
 
           </div>
