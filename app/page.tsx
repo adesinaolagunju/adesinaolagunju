@@ -61,17 +61,19 @@ export default function Page() {
           id="about"
           className="flex flex-col w-fit md:flex-row items-center gap-10 mt-24 "
         >
-          <Image
-            src={profile_pic}
-            alt="Abdullah Adesina"
-            className="w-60 md:w-70 h-auto rounded-2xl"
-            priority
-          />
+          <div>
+            <img
+              src={'/Adesina.png'}
+              alt="Abdullah Adesina"
+              className="w-60 md:w-70 h-auto rounded-2xl"
+            />
+
+            <p className="text-sm text-center font-semibold text-gray-500 uppercase">
+              Fullstack and Mobile App Developer
+            </p>        
+          </div>
 
           <div className="max-w-xl space-y-4">
-            <p className="text-sm font-semibold text-gray-500 uppercase">
-              Fullstack and Mobile App Developer
-            </p>
 
             <h1 className="text-3xl font-bold">
               Hi, I’m Adesina Olagunju
