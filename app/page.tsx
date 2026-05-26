@@ -61,14 +61,14 @@ export default function Page() {
           id="about"
           className="flex flex-col w-fit md:flex-row items-center gap-10 mt-24 "
         >
-          <div>
+          <div className="flex flex-col items-center ">
             <img
               src={'/Adesina.png'}
               alt="Abdullah Adesina"
               className="w-60 md:w-70 h-auto rounded-2xl"
             />
 
-            <p className="text-sm text-center font-semibold text-gray-500 uppercase">
+            <p className="text-sm mt-4 text-center font-semibold text-gray-500 uppercase">
               Fullstack and Mobile App Developer
             </p>        
           </div>
